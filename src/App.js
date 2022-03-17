@@ -1,24 +1,42 @@
-import { useEffect, useState } from "react";
 import "./App.css";
 
-function App() {
-  return <LoadCountries></LoadCountries>;
-}
+import Countries from "./components/Countries/Countries";
 
-const LoadCountries = () => {
-  const [countries, setCountry] = useState([]);
-  useEffect(() => {
-    fetch("https://restcountries.com/v2/all")
-      .then((res) => res.json())
-      .then((data) => setCountry(data));
-  }, []);
+function App() {
   return (
     <div>
-      {countries.map((country) => {
-        console.log(country);
-      })}
-      <h1>Countries</h1>;
+      <Countries></Countries>
     </div>
   );
-};
+}
+
+// const LoadCountries = () => {
+//   const [countries, setCountry] = useState([]);
+//   useEffect(() => {
+//     fetch("https://restcountries.com/v2/all")
+//       .then((res) => res.json())
+//       .then((data) => setCountry(data));
+//   }, []);
+//   return (
+//     <div>
+//       {countries.map((country) => {
+//         return (
+//           <Country
+//             name={country.name}
+//             population={country.population}
+//           ></Country>
+//         );
+//       })}
+//     </div>
+//   );
+// };
+
+// const Country = (props) => {
+//   return (
+//     <div>
+//       <h2>Name: {props.name}</h2>
+//       <h4>Population: {props.population}</h4>
+//     </div>
+//   );
+// };
 export default App;
